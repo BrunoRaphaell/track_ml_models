@@ -5,7 +5,7 @@ import json
 from sklearn import preprocessing
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 from utils.auxiliary_functions import *
 
 SEED = 42
@@ -26,7 +26,7 @@ X = imp.transform(X)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-clf = DecisionTreeClassifier(max_depth=5)
+clf = RandomForestClassifier()
 clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
 
