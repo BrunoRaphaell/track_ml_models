@@ -61,7 +61,7 @@ def plot_matriz_confusao(y_true_teste, y_pred_teste, group_names=None,
         plt.title(title, fontsize=20)
     if save_fig:
         figure = ax.get_figure()
-        figure.savefig('matriz_confusa.png')
+        figure.savefig('matriz_confusao.png')
 
 def return_metrics(y_true_teste, y_pred_teste):
     accuracy = accuracy_score(y_true_teste, y_pred_teste)

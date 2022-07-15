@@ -46,4 +46,5 @@ acc, precision, recall, f1_score_metric = return_metrics(y_test, y_pred)
 with open("metrics.json", 'w') as outfile:
         json.dump({ "Accuracy": acc, "Precision": precision, "Recall" : recall, "F1-score": f1_score_metric}, outfile)
 
-pd.DataFrame({'actual': y_test, 'predicted': y_pred}).to_csv('classes.csv', index=False)
+# Adicionar posteriormente
+# pd.DataFrame({'actual': y_test, 'predicted': y_pred}).to_csv('classes.csv', index=False)

@@ -1,0 +1,44 @@
+schema: '2.0'
+stages:
+  get_data:
+    cmd: python x1_get_data.py
+    deps:
+    - path: x1_get_data.py
+      md5: 79726d6ce3a2dbf812f6b8034f2dff27
+      size: 496
+    outs:
+    - path: data_raw.csv
+      md5: a6aec8da63a5fa2619af025a76746f29
+      size: 68868
+  process:
+    cmd: python x2_process_data.py
+    deps:
+    - path: data_raw.csv
+      md5: a6aec8da63a5fa2619af025a76746f29
+      size: 68868
+    - path: x2_process_data.py
+      md5: 86015b55874362400131a6d53ef9b800
+      size: 912
+    outs:
+    - path: data_processed.csv
+      md5: 158e89210e2cf3766064ff0653ca6834
+      size: 23916
+  train:
+    cmd: python x3_train.py
+    deps:
+    - path: data_processed.csv
+      md5: 158e89210e2cf3766064ff0653ca6834
+      size: 23916
+    - path: utils/auxiliary_functions.py
+      md5: 1d44489b8f30770ed95e69f8ba5d9de1
+      size: 2636
+    - path: x3_train.py
+      md5: acf559325bfe2670215c1095b2cd47f5
+      size: 1521
+    outs:
+    - path: matriz_confusao.png
+      md5: 4269238b001262f41c9d320279203d66
+      size: 38023
+    - path: metrics.json
+      md5: a031d6ecfe0caf1d1aa3130b045da666
+      size: 127

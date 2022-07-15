@@ -1,0 +1,30 @@
+stages:
+  get_data:
+    cmd: python x1_get_data.py
+    deps:
+    - x1_get_data.py
+    outs:
+    - data_raw.csv
+  process:
+    cmd: python x2_process_data.py
+    deps:
+    - x2_process_data.py
+    - data_raw.csv
+    outs:
+    - data_processed.csv
+  train:
+    cmd: python x3_train.py
+    deps:
+    - x3_train.py
+    - utils/auxiliary_functions.py
+    - data_processed.csv
+    outs:
+    - matriz_confusao.png
+    metrics: 
+    - metrics.json:
+        cache: false
+    
+    
+    
+
+    
